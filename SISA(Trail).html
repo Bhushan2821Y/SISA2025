@@ -1,0 +1,282 @@
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Student Organization Name</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html" title="Return to homepage">Home</a></li>
+                <li><a href="about.html" title="Learn about our mission">About Us</a></li>
+                <li><a href="events.html" title="Know about our events">Events</a></li>
+               <!-- <li><a href="membership.html" title="Learn about our mission">membership</a></li>-->
+                <li><a href="news.html" title="Learn about our mission">news</a></li>
+                <li><a href="contact.html" title="Learn about our mission">contact</a></li>
+                <li><a href="Gallery.html" title="Learn about our mission">Gallery</a></li>
+                <li><a href="services.html" title="Learn about our mission">Services</a></li>
+                <li><a href="FAQs.html" title="Learn about our mission">FAQs</a></li>
+              
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <h1>Making a Difference Through Education</h1>
+            <p>Join us in our mission to create positive change in our community</p>
+            <a href="#join" class="cta-button">Get Involved</a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <h2>About Us</h2>
+            <div class="mission-vision">
+                <div class="mission">
+                    <h3>Our Mission</h3>
+                    <p>To empower students through leadership, service, and academic excellence</p>
+                </div>
+                <div class="vision">
+                    <h3>Our Vision</h3>
+                    <p>Creating a community where every student has the opportunity to succeed</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Initiatives Section -->
+        <section id="initiatives" class="initiatives-section">
+            <h2>Our Initiatives</h2>
+            <div class="initiative-cards">
+                <!-- Add initiative cards here -->
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="team-section">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <!-- Add team member cards here -->
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="events-section">
+            <h2>Upcoming Events</h2>
+            <div class="event-list">
+                <!-- Add event cards here -->
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2>Get in Touch</h2>
+            <div class="contact-container">
+                <form class="contact-form">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Email: contact@organization.com</p>
+                    <p>Location: Campus Building, Room 101</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <h4>Follow Us</h4>
+                <a href="#" title="Follow us on Instagram">Instagram</a>
+                <a href="#" title="Follow us on Whats app">Whats app</a>
+                <a href="#" title="Follow us on Facebook">Facebook</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Student Organization. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+<style>
+    :root {
+        --color-primary: #FF4B36;
+        --color-secondary: #0519FF;
+        --color-bg: #F5F5F5;
+        --color-text: #000000;
+        --shadow-brutal: 0 0 0 0 #000;
+        --border-brutal: 3px solid #000;
+    }
+
+    body {
+        background-color: var(--color-bg);
+        font-family: 'Inter', sans-serif;
+        color: var(--color-text);
+    }
+
+    .navbar {
+        background-color: #fff;
+        border: var(--border-brutal);
+        box-shadow: var(--shadow-brutal);
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .nav-links a {
+        color: var(--color-text);
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: transform 0.2s;
+    }
+    /*.nav-links a:hover {
+        color: var(--color-primary);
+        transform: translateY(-2px);
+   }*/
+
+   
+
+    .hero {
+        background-color: var(--color-primary);
+        border: var(--border-brutal);
+        box-shadow: var(--shadow-brutal);
+        margin: 20px;
+        
+        
+       
+    }
+
+    .cta-button {
+        background-color: #fff;
+        border: var(--border-brutal);
+        box-shadow: var(--shadow-brutal);
+        padding: 15px 30px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: transform 0.2s;
+    }
+
+    .cta-button:hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 12px 12px 0 0 #000;
+    }
+
+    section {
+        background-color: #fff;
+        border: var(--border-brutal);
+        box-shadow: var(--shadow-brutal);
+        margin: 40px 20px;
+        padding: 30px;
+    }
+
+    .mission-vision {
+        gap: 30px;
+    }
+
+    .mission, .vision {
+        background-color: #fff;
+        border: var(--border-brutal);
+        box-shadow: var(--shadow-brutal);
+        padding: 20px;
+        
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        border: var(--border-brutal);
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .contact-form button {
+        background-color: var(--color-secondary);
+        color: #fff;
+        border: var(--border-brutal);
+        box-shadow: var(--shadow-brutal);
+        padding: 15px 30px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: transform 0.2s;
+    }
+
+    .contact-form button:hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 12px 12px 0 0 #000;
+    }
+
+    footer {
+        background-color: #fff;
+        border-top: var(--border-brutal);
+        margin-top: 40px;
+        /*transform: rotate(-0.5deg);*/
+    }
+
+    .social-links a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: var(--color-primary);
+        color: #fff;
+        border: var(--border-brutal);
+        box-shadow: var(--shadow-brutal);
+        text-decoration: none;
+        font-weight: bold;
+        transition: transform 0.2s;
+    }
+
+    .social-links a:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 10px 10px 0 0 #000;
+    }
+/* Add these styles to your existing CSS */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.nav-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    border: var(--border-brutal);
+    background-color: var(--color-bg);
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 0.5rem;
+    }
+    
+    .nav-links a {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+}
+</style>

@@ -1,0 +1,82 @@
+import React from "react";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Search, Calendar, MapPin } from "lucide-react";
+
+const MOCK_GALLERY = [
+    { id: 1, title: "Leadership Summit 2024", date: "Jan 2024", category: "conference", image_url: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&h=400&fit=crop" },
+    { id: 2, title: "Community Service Day", date: "Dec 2023", category: "community", image_url: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop" },
+    { id: 3, title: "Networking Mixer", date: "Nov 2023", category: "networking", image_url: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&h=400&fit=crop" },
+    { id: 4, title: "Team Building Retreat", date: "Oct 2023", category: "social", image_url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=400&fit=crop" },
+    { id: 5, title: "Innovation Workshop", date: "Oct 2023", category: "workshop", image_url: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop" },
+    { id: 6, title: "Award Ceremony", date: "Sep 2023", category: "achievement", image_url: "https://images.unsplash.com/photo-1569705460033-cfaa8e72c8ba?w=600&h=400&fit=crop" },
+    { id: 7, title: "Study Group Session", date: "Sep 2023", category: "academic", image_url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop" },
+    { id: 8, title: "Welcome Week", date: "Aug 2023", category: "social", image_url: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop" },
+    { id: 9, title: "Guest Speaker Series", date: "Aug 2023", category: "conference", image_url: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&h=400&fit=crop" },
+];
+
+export default function Gallery() {
+    const categoryColors = {
+        conference: "bg-blue-100 text-blue-800",
+        community: "bg-green-100 text-green-800",
+        networking: "bg-purple-100 text-purple-800",
+        social: "bg-pink-100 text-pink-800",
+        workshop: "bg-orange-100 text-orange-800",
+        achievement: "bg-yellow-100 text-yellow-800",
+        academic: "bg-indigo-100 text-indigo-800"
+    };
+
+    return (
+        <div className="font-mono">
+            {/* Header */}
+            <section className="bg-yellow-300 p-6 lg:p-12 border-b-2 border-black">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h1 className="text-5xl lg:text-8xl font-black text-black mb-4 uppercase tracking-tighter">Gallery</h1>
+                    <p className="text-lg lg:text-xl text-black font-medium">
+                        Memories from our events, activities, and achievements.
+                    </p>
+                </div>
+            </section>
+            
+            {/* Filters */}
+            <section className="p-6 bg-white border-b-2 border-black sticky top-0 z-10">
+                <div className="max-w-6xl mx-auto flex gap-4">
+                    <div className="relative flex-grow">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-black" />
+                        <Input
+                            placeholder="SEARCH PHOTOS..."
+                            className="neo-brutalist-input w-full pl-10 bg-white rounded-none h-12 font-bold"
+                        />
+                    </div>
+                    <select className="neo-brutalist-input bg-white h-12 font-bold rounded-none">
+                        <option>ALL CATEGORIES</option>
+                        <option>CONFERENCE</option>
+                        <option>COMMUNITY</option>
+                        <option>NETWORKING</option>
+                        <option>SOCIAL</option>
+                        <option>WORKSHOP</option>
+                        <option>ACHIEVEMENT</option>
+                        <option>ACADEMIC</option>
+                    </select>
+                </div>
+            </section>
+
+            {/* Gallery Grid */}
+            <section className="p-6 lg:p-12 bg-[#FDFDEE]">
+                <div className="max-w-6xl mx-auto">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {MOCK_GALLERY.map((photo) => (
+                            <Card key={photo.id} className="neo-brutalist-card bg-white rounded-none overflow-hidden group cursor-pointer">
+                                <div className="relative overflow-hidden">
+                                    <img 
+                                        src={photo.image_url} 
+                                        alt={photo.title}
+                                        className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
+                                </div>
+                                <div className="p-4">
+                                    <Badge className={`${categoryColors[photo.category] || 'bg-gray-100 text-gray-800'} font-bold rounded-none mb-2`}>
+                                        {photo.category.toUpperCase()}
+ 

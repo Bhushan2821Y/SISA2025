@@ -1,0 +1,82 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Check, Star } from "lucide-react";
+
+export default function Membership() {
+    const benefits = [
+        "Exclusive Events",
+        "Community Network",
+        "Leadership Opportunities",
+        "Professional Development",
+        "Community Impact",
+        "Mentorship Program"
+    ];
+
+    const membershipTiers = [
+        {
+            name: "Active Member",
+            price: "FREE",
+            features: [
+                "Access to general meetings",
+                "Participate in most events",
+                "Join committees",
+            ],
+            popular: false,
+            color: "bg-white",
+            buttonColor: "bg-black text-white"
+        },
+        {
+            name: "Executive",
+            price: "$25/SEM",
+            features: [
+                "All Active Member benefits",
+                "Priority event registration",
+                "Exclusive leadership workshops",
+                "One-on-one mentorship"
+            ],
+            popular: true,
+            color: "bg-yellow-300",
+            buttonColor: "bg-black text-white"
+        },
+        {
+            name: "Lifetime",
+            price: "$150",
+            features: [
+                "All Executive benefits",
+                "Lifetime alumni access",
+                "Annual alumni events",
+                "Career placement assistance"
+            ],
+            popular: false,
+            color: "bg-black text-white",
+            buttonColor: "bg-yellow-300 text-black"
+        }
+    ];
+
+    return (
+        <div className="font-mono">
+            {/* Header */}
+            <section className="bg-yellow-300 p-6 lg:p-12 border-b-2 border-black">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h1 className="text-5xl lg:text-8xl font-black text-black mb-4 uppercase tracking-tighter">Join Us</h1>
+                    <p className="text-lg lg:text-xl text-black font-medium">
+                        Become part of a driven community. Your journey starts here.
+                    </p>
+                </div>
+            </section>
+            
+            {/* Benefits Section */}
+            <section className="p-6 lg:p-12 bg-white">
+                <div className="max-w-6xl mx-auto">
+                    <h2 className="text-4xl font-black text-black text-center mb-8 uppercase">Member Benefits</h2>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {benefits.map((benefit, index) => (
+                            <div key={index} className="flex items-center gap-3 p-4 border-2 border-black bg-white font-bold text-lg">
+                                <Check className="w-6 h-6 text-black flex-shrink-0" />
+                                <span>{benefit}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+ 

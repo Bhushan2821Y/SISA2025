@@ -1,0 +1,125 @@
+ <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <h1>Making a Difference Through Education</h1>
+            <p>Join us in our mission to create positive change in our community</p>
+            <a href="#join" class="cta-button">Get Involved</a>
+        </section>
+        import React from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, Calendar, Users, Trophy, Target, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+
+export default function Home() {
+    const stats = [
+        { icon: Users, label: "Members", value: "250+" },
+        { icon: Calendar, label: "Events", value: "48" },
+        { icon: Trophy, label: "Awards", value: "12" },
+        { icon: Heart, label: "Impact", value: "500+" }
+    ];
+
+    const values = [
+        { title: "Leadership", description: "Develop essential leadership skills through hands-on experience." },
+        { title: "Community", description: "Build lasting friendships and professional networks." },
+        { title: "Excellence", description: "Strive for academic and personal excellence in all endeavors." },
+        { title: "Impact", description: "Make a meaningful difference in your community and beyond." },
+    ];
+
+    return (
+        <div className="font-mono">
+            {/* Hero Section */}
+            <section className="bg-yellow-300 p-6 lg:p-12 border-b-2 border-black">
+                <div className="max-w-6xl mx-auto text-center py-10 lg:py-20">
+                    <h1 className="text-5xl lg:text-8xl font-black text-black mb-6 uppercase tracking-tighter">
+                        Excellence & Community
+                    </h1>
+                    
+                    <p className="text-lg lg:text-xl text-black mb-10 max-w-3xl mx-auto font-medium">
+                        A vibrant community of ambitious students dedicated to academic excellence, 
+                        professional development, and making a lasting impact.
+                    </p>
+                    
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <Link to={createPageUrl("Membership")}>
+                            <Button size="lg" className="neo-brutalist-button bg-black text-white hover:bg-black w-full sm:w-auto text-lg font-bold">
+                                JOIN US
+                                <ArrowRight className="w-5 h-5 ml-2" />
+                            </Button>
+                        </Link>
+                        <Link to={createPageUrl("About")}>
+                            <Button size="lg" className="neo-brutalist-button bg-white text-black w-full sm:w-auto text-lg font-bold">
+                                LEARN MORE
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Stats Section */}
+            <section className="p-6 lg:p-12 bg-white border-b-2 border-black">
+                <div className="max-w-6xl mx-auto">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                        {stats.map((stat, index) => (
+                            <div key={index} className="text-center p-4 border-2 border-black bg-white">
+                                <div className="text-5xl font-black text-black mb-2">{stat.value}</div>
+                                <div className="text-black font-bold uppercase tracking-widest">{stat.label}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Mission Section */}
+            <section className="p-6 lg:p-12 bg-[#FDFDEE]">
+                <div className="max-w-6xl mx-auto">
+                    <div className="grid lg:grid-cols-5 gap-8 items-center">
+                        <div className="lg:col-span-2">
+                             <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 uppercase tracking-tighter">
+                                Our Mission
+                            </h2>
+                            <p className="text-lg text-black mb-8 font-medium">
+                                We foster an environment where students can develop leadership skills, 
+                                build meaningful connections, and create positive change in their communities.
+                            </p>
+                            <Link to={createPageUrl("About")}>
+                                <Button className="neo-brutalist-button bg-yellow-300 text-black font-bold">
+                                    Our Story
+                                    <ArrowRight className="w-4 h-4 ml-2" />
+                                </Button>
+                            </Link>
+                        </div>
+                        <div className="lg:col-span-3 grid grid-cols-2 gap-4">
+                            {values.map((value, index) => (
+                                <Card key={index} className="bg-white border-2 border-black rounded-none p-4">
+                                    <CardContent className="p-0">
+                                        <h3 className="font-bold text-black mb-2 uppercase text-lg">{value.title}</h3>
+                                        <p className="text-sm text-black font-medium">{value.description}</p>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            {/* CTA Section */}
+            <section className="p-6 lg:p-12 bg-black text-white">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h2 className="text-4xl lg:text-6xl font-black mb-8 uppercase tracking-tighter">Make Your Mark</h2>
+                    <p className="text-xl lg:text-2xl mb-10 opacity-90 font-medium">
+                        Join a community that believes in your potential.
+                    </p>
+                    <Link to={createPageUrl("Membership")}>
+                        <Button size="lg" className="neo-brutalist-button bg-yellow-300 text-black hover:bg-yellow-300 text-lg font-bold">
+                            Become a Member
+                            <ArrowRight className="w-5 h-5 ml-2" />
+                        </Button>
+                    </Link>
+                </div>
+            </section>
+        </div>
+    );
+}

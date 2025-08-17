@@ -1,0 +1,82 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Search, ChevronDown, ChevronUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const FAQS = [
+    {
+        id: 1,
+        category: "Membership",
+        question: "How do I join SISA?",
+        answer: "To join SISA, simply fill out our online application form, attend a meet & greet session, and complete the new member orientation. The process typically takes 2-3 weeks."
+    },
+    {
+        id: 2,
+        category: "Membership",
+        question: "What are the membership fees?",
+        answer: "We offer three tiers: Active Member (FREE), Executive ($25/semester), and Lifetime ($150). Each tier offers different benefits and access levels."
+    },
+    {
+        id: 3,
+        category: "Membership",
+        question: "Can I join mid-semester?",
+        answer: "Yes! We accept new members throughout the semester. However, joining early gives you access to more events and opportunities."
+    },
+    {
+        id: 4,
+        category: "Events",
+        question: "Are events open to non-members?",
+        answer: "Most general events are open to all students, but some exclusive workshops and networking events are member-only. Check each event's details for specific requirements."
+    },
+    {
+        id: 5,
+        category: "Events",
+        question: "How do I register for events?",
+        answer: "Members can register for events through our member portal. Non-members can register through our public event registration system or by contacting us directly."
+    },
+    {
+        id: 6,
+        category: "Events",
+        question: "What if I can't attend an event I registered for?",
+        answer: "Please notify us at least 24 hours before the event so we can open the spot for other interested members. Some events may have cancellation fees."
+    },
+    {
+        id: 7,
+        category: "General",
+        question: "What makes SISA different from other organizations?",
+        answer: "SISA focuses on holistic development through leadership, community service, and professional growth. We offer personalized mentorship and maintain strong alumni connections."
+    },
+    {
+        id: 8,
+        category: "General",
+        question: "How much time commitment is expected?",
+        answer: "The time commitment varies by membership tier. Active members can participate as their schedule allows, while Executive members are expected to attend monthly meetings and contribute to projects."
+    },
+    {
+        id: 9,
+        category: "Academic",
+        question: "Do you provide academic support?",
+        answer: "Yes! We offer study groups, peer tutoring, research opportunities, and academic workshops. Our members often form study partnerships across different majors."
+    },
+    {
+        id: 10,
+        category: "Academic",
+        question: "Are there GPA requirements?",
+        answer: "We don't have strict GPA requirements for membership, but we encourage academic excellence and provide support to help all members succeed in their studies."
+    }
+];
+
+export default function FAQs() {
+    const [openFAQ, setOpenFAQ] = React.useState(null);
+    const [selectedCategory, setSelectedCategory] = React.useState("All");
+    
+    const categories = ["All", "Membership", "Events", "General", "Academic"];
+    
+    const filteredFAQs = selectedCategory === "All" 
+        ? FAQS 
+        : FAQS.filter(faq => faq.category === selectedCategory);
+
+    const toggleFAQ = (id) => {
+        setOpenFAQ(openFAQ === id ? null : id);
+ 

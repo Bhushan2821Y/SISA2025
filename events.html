@@ -1,0 +1,96 @@
+<li><a href="#events" title="Know about our events">About Us</a></li>
+<section id="events" class="about-section">
+            <h2>About Us</h2>
+            <div class="mission-vision">
+                <div class="mission">
+                    <h3>Our Mission</h3>
+                    <p>To empower students through leadership, service, and academic excellence</p>
+                </div>
+                <div class="vision">
+                    <h3>Our Vision</h3>
+                    <p>Creating a community where every student has the opportunity to succeed</p>
+                </div>
+            </div>
+        </section>
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Calendar, MapPin, Search } from "lucide-react";
+
+const MOCK_EVENTS = [
+    { id: 1, title: "Leadership Workshop", date: "FEB 15", time: "2:00 PM", location: "SU Room A", category: "workshop", image_url: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=450&fit=crop" },
+    { id: 2, title: "Spring Networking Mixer", date: "MAR 08", time: "6:00 PM", location: "Alumni Center", category: "networking", image_url: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=450&fit=crop" },
+    { id: 3, title: "Community Garden Day", date: "MAR 22", time: "10:00 AM", location: "Science Bldg", category: "community", image_url: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=450&fit=crop" },
+    { id: 4, title: "Monthly General Meeting", date: "FEB 28", time: "7:00 PM", location: "SU Room 204", category: "meeting" },
+    { id: 5, title: "Career Dev Conference", date: "APR 12", time: "9:00 AM", location: "Conference Center", category: "conference", image_url: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=450&fit=crop" },
+    { id: 6, title: "Welcome Back Social", date: "FEB 02", time: "5:30 PM", location: "SU Main Lounge", category: "social", image_url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=450&fit=crop" },
+];
+
+export default function Events() {
+    return (
+        <div className="font-mono">
+            {/* Header */}
+            <section className="bg-yellow-300 p-6 lg:p-12 border-b-2 border-black">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h1 className="text-5xl lg:text-8xl font-black text-black mb-4 uppercase tracking-tighter">Events</h1>
+                    <p className="text-lg lg:text-xl text-black font-medium">
+                        Learn, connect, and grow. We have something for everyone.
+                    </p>
+                </div>
+            </section>
+
+            {/* Filters */}
+            <section className="p-6 bg-white border-b-2 border-black sticky top-0 z-10">
+                <div className="max-w-6xl mx-auto flex gap-4">
+                    <div className="relative flex-grow">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-black" />
+                        <Input
+                            placeholder="SEARCH EVENTS..."
+                            className="neo-brutalist-input w-full pl-10 bg-white rounded-none h-12 font-bold"
+                        />
+                    </div>
+                     <select className="neo-brutalist-input bg-white h-12 font-bold rounded-none">
+                        <option>ALL CATEGORIES</option>
+                        <option>WORKSHOP</option>
+                        <option>NETWORKING</option>
+                        <option>SOCIAL</option>
+                    </select>
+                </div>
+            </section>
+
+            {/* Events Grid */}
+            <section className="p-6 lg:p-12 bg-[#FDFDEE]">
+                <div className="max-w-6xl mx-auto">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {MOCK_EVENTS.map((event) => (
+                            <Card key={event.id} className="neo-brutalist-card bg-white rounded-none overflow-hidden flex flex-col">
+                                <div className="border-b-2 border-black">
+                                    <img 
+                                        src={event.image_url || `https://source.unsplash.com/random/800x450?${event.category}`} 
+                                        alt={event.title}
+                                        className="w-full h-48 object-cover"
+                                    />
+                                </div>
+                                <CardContent className="p-4 flex flex-col flex-grow">
+                                    <Badge className="bg-yellow-300 text-black font-bold rounded-none self-start mb-3">{event.category.toUpperCase()}</Badge>
+                                    <h3 className="text-2xl font-black text-black flex-grow">{event.title.toUpperCase()}</h3>
+                                    <div className="mt-4 border-t-2 border-black pt-3 text-sm font-bold">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <Calendar className="w-4 h-4" />
+                                            <span>{event.date} @ {event.time}</span>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <MapPin className="w-4 h-4" />
+                                            <span>{event.location}</span>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
+}

@@ -1,0 +1,82 @@
+
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Search, Calendar } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const MOCK_NEWS = [
+    { id: 1, title: "SISA Wins Award", summary: "Recognized as Outstanding Organization of the Year.", category: "achievement", featured: true, date: "FEB 10, 2024", image_url: "https://images.unsplash.com/photo-1569705460033-cfaa8e72c8ba?w=800&h=450&fit=crop" },
+    { id: 2, title: "New Chamber of Commerce Partnership", summary: "Exclusive networking and internship opportunities for members.", category: "partnership", featured: true, date: "FEB 08, 2024", image_url: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=450&fit=crop" },
+    { id: 3, title: "Leadership Retreat Registration Open", summary: "Early bird registration now open for our Spring Leadership Retreat.", category: "announcement", featured: false, date: "FEB 05, 2024", image_url: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=450&fit=crop" },
+    { id: 4, title: "Community Garden Exceeds Goals", summary: "Donating fresh produce while creating a vibrant community space.", category: "event recap", featured: false, date: "FEB 01, 2024", image_url: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=450&fit=crop" },
+];
+
+export default function NewsPage() {
+    const featuredNews = MOCK_NEWS.filter(n => n.featured);
+    const regularNews = MOCK_NEWS.filter(n => !n.featured);
+
+    return (
+        <div className="font-mono">
+            {/* Header */}
+            <section className="bg-yellow-300 p-6 lg:p-12 border-b-2 border-black">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h1 className="text-5xl lg:text-8xl font-black text-black mb-4 uppercase tracking-tighter">News</h1>
+                    <p className="text-lg lg:text-xl text-black font-medium">
+                        Latest announcements, achievements, and community highlights.
+                    </p>
+                </div>
+            </section>
+            
+            {/* Filters */}
+            <section className="p-6 bg-white border-b-2 border-black sticky top-0 z-10">
+                <div className="max-w-6xl mx-auto flex gap-4">
+                    <div className="relative flex-grow">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-black" />
+                        <Input
+                            placeholder="SEARCH NEWS..."
+                            className="neo-brutalist-input w-full pl-10 bg-white rounded-none h-12 font-bold"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* News Grid */}
+            <section className="p-6 lg:p-12 bg-[#FDFDEE]">
+                <div className="max-w-6xl mx-auto">
+                    {/* Featured News */}
+                    <div className="grid lg:grid-cols-2 gap-6 mb-6">
+                        {featuredNews.map(article => (
+                            <Card key={article.id} className="neo-brutalist-card bg-white rounded-none overflow-hidden flex flex-col">
+                                <div className="border-b-2 border-black">
+                                    <img src={article.image_url} alt={article.title} className="w-full h-64 object-cover"/>
+                                </div>
+                                <CardContent className="p-4 flex flex-col flex-grow">
+                                    <Badge className="bg-yellow-300 text-black font-bold rounded-none self-start mb-3">{article.category.toUpperCase()}</Badge>
+                                    <h3 className="text-3xl font-black text-black mb-2">{article.title.toUpperCase()}</h3>
+                                    <p className="font-medium text-black mb-4 flex-grow">{article.summary}</p>
+                                    <p className="text-sm font-bold flex items-center gap-2 border-t-2 border-black pt-2"><Calendar className="w-4 h-4" />{article.date}</p>
+                                    <Button className="neo-brutalist-button bg-black text-white w-full mt-4 font-bold">READ MORE</Button>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                     {/* Regular News */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {regularNews.map(article => (
+                             <Card key={article.id} className="neo-brutalist-card bg-white rounded-none overflow-hidden flex flex-col">
+                                <div className="border-b-2 border-black">
+                                     <img src={article.image_url} alt={article.title} className="w-full h-48 object-cover"/>
+                                </div>
+                                <CardContent className="p-4 flex flex-col flex-grow">
+                                     <Badge className="bg-yellow-300 text-black font-bold rounded-none self-start mb-3">{article.category.toUpperCase()}</Badge>
+                                     <h3 className="text-xl font-black text-black mb-2 flex-grow">{article.title.toUpperCase()}</h3>
+                                     <p className="text-sm font-bold flex items-center gap-2 border-t-2 border-black pt-2"><Calendar className="w-4 h-4" />{article.date}</p>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                </div>
+            </section>
+ 

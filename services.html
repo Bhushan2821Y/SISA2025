@@ -1,0 +1,82 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { 
+    Users, 
+    Calendar, 
+    GraduationCap, 
+    Briefcase, 
+    Heart, 
+    Trophy,
+    ArrowRight,
+    CheckCircle,
+    Star
+} from "lucide-react";
+
+const SERVICES = [
+    {
+        id: 1,
+        title: "Leadership Development",
+        description: "Comprehensive programs to develop your leadership skills through workshops, mentorship, and hands-on experience.",
+        icon: Trophy,
+        features: ["One-on-one mentorship", "Leadership workshops", "Project management training", "Public speaking coaching"],
+        popular: true
+    },
+    {
+        id: 2,
+        title: "Career Services",
+        description: "Get ahead in your career with our professional development programs and industry connections.",
+        icon: Briefcase,
+        features: ["Resume reviews", "Interview preparation", "Industry networking", "Job placement assistance"],
+        popular: false
+    },
+    {
+        id: 3,
+        title: "Academic Support",
+        description: "Study groups, tutoring, and academic resources to help you excel in your studies.",
+        icon: GraduationCap,
+        features: ["Study groups", "Peer tutoring", "Academic workshops", "Research opportunities"],
+        popular: false
+    },
+    {
+        id: 4,
+        title: "Community Engagement",
+        description: "Make a positive impact through community service projects and social initiatives.",
+        icon: Heart,
+        features: ["Community service projects", "Social impact initiatives", "Volunteer opportunities", "Charity fundraising"],
+        popular: false
+    },
+    {
+        id: 5,
+        title: "Networking Events",
+        description: "Connect with peers, alumni, and industry professionals through our exclusive networking events.",
+        icon: Users,
+        features: ["Professional mixers", "Alumni connections", "Industry meetups", "Guest speaker series"],
+        popular: true
+    },
+    {
+        id: 6,
+        title: "Event Planning",
+        description: "Access to event planning resources and support for organizing your own initiatives.",
+        icon: Calendar,
+        features: ["Event planning support", "Venue coordination", "Marketing assistance", "Budget management"],
+        popular: false
+    }
+];
+
+export default function Services() {
+    return (
+        <div className="font-mono">
+            {/* Header */}
+            <section className="bg-yellow-300 p-6 lg:p-12 border-b-2 border-black">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h1 className="text-5xl lg:text-8xl font-black text-black mb-4 uppercase tracking-tighter">Services</h1>
+                    <p className="text-lg lg:text-xl text-black font-medium">
+                        Everything you need to grow, connect, and make an impact.
+                    </p>
+                </div>
+            </section>
+
+            {/* Services Grid */}
+ 

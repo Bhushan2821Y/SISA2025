@@ -1,0 +1,95 @@
+<li><a href="#contact" title="Learn about our mission">About Us</a></li>
+<section id="contact" class="about-section">
+            <h2>About Us</h2>
+            <div class="mission-vision">
+                <div class="mission">
+                    <h3>Our Mission</h3>
+                    <p>To empower students through leadership, service, and academic excellence</p>
+                </div>
+                <div class="vision">
+                    <h3>Our Vision</h3>
+                    <p>Creating a community where every student has the opportunity to succeed</p>
+                </div>
+            </div>
+        </section>
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Mail, MapPin, Instagram, Twitter, Facebook, Linkedin, Send } from "lucide-react";
+
+export default function Contact() {
+    const socialLinks = [
+        { icon: Instagram, name: "Instagram" },
+        { icon: Twitter, name: "Twitter" },
+        { icon: Facebook, name: "Facebook" },
+        { icon: Linkedin, name: "LinkedIn" }
+    ];
+    return (
+        <div className="font-mono">
+            {/* Header */}
+            <section className="bg-yellow-300 p-6 lg:p-12 border-b-2 border-black">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h1 className="text-5xl lg:text-8xl font-black text-black mb-4 uppercase tracking-tighter">Contact</h1>
+                    <p className="text-lg lg:text-xl text-black font-medium">
+                        Questions? We'd love to hear from you. Let's talk.
+                    </p>
+                </div>
+            </section>
+
+            <section className="p-6 lg:p-12 bg-white">
+                <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">
+                    {/* Contact Form */}
+                    <div className="lg:col-span-2">
+                        <Card className="neo-brutalist-card bg-white rounded-none">
+                            <CardContent className="p-6">
+                                <form className="space-y-6">
+                                    <div className="grid md:grid-cols-2 gap-6">
+                                        <div>
+                                            <Label htmlFor="name" className="font-bold uppercase">Full Name</Label>
+                                            <Input id="name" placeholder="YOUR NAME" required className="mt-2 neo-brutalist-input bg-white rounded-none h-12 font-bold" />
+                                        </div>
+                                        <div>
+                                            <Label htmlFor="email" className="font-bold uppercase">Email</Label>
+                                            <Input id="email" type="email" placeholder="YOUR.EMAIL@DOMAIN.COM" required className="mt-2 neo-brutalist-input bg-white rounded-none h-12 font-bold"/>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <Label htmlFor="subject" className="font-bold uppercase">Subject</Label>
+                                        <Input id="subject" placeholder="WHAT'S UP?" required className="mt-2 neo-brutalist-input bg-white rounded-none h-12 font-bold"/>
+                                    </div>
+                                    <div>
+                                        <Label htmlFor="message" className="font-bold uppercase">Message</Label>
+                                        <Textarea id="message" placeholder="YOUR MESSAGE HERE..." rows={5} required className="mt-2 neo-brutalist-input bg-white rounded-none font-bold" />
+                                    </div>
+                                    <Button type="submit" className="neo-brutalist-button w-full bg-yellow-300 text-black h-14 text-lg font-bold">
+                                        <Send className="w-5 h-5 mr-2" /> SEND
+                                    </Button>
+                                </form>
+                            </CardContent>
+                        </Card>
+                    </div>
+
+                    {/* Info & Socials */}
+                    <div className="space-y-8">
+                        <Card className="neo-brutalist-card bg-white rounded-none">
+                             <CardContent className="p-6 space-y-4">
+                                <div>
+                                    <h3 className="font-bold uppercase flex items-center gap-2"><Mail /> Email</h3>
+                                    <p className="font-medium">contact@sisa.org</p>
+                                </div>
+                                <div>
+                                    <h3 className="font-bold uppercase flex items-center gap-2"><MapPin /> Address</h3>
+                                    <p className="font-medium">Student Union, Rm 204<br/>University Campus</p>
+                                </div>
+                             </CardContent>
+                        </Card>
+                         <Card className="neo-brutalist-card bg-white rounded-none">
+                             <CardContent className="p-6">
+                                <h3 className="font-bold uppercase mb-4">Follow Us</h3>
+                                <div className="space-y-2">
+                                    {socialLinks.map((social, index) => (
+                                        <a key={index} href="#" className="flex items-center gap-3 p-2 border-2 border-black bg-white font-bold hover:bg-yellow-200">
+ 
